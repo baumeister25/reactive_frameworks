@@ -1,15 +1,22 @@
-docker run --name some-postgres -e POSTGRES_PASSWORD=password -e POSTGRES_DB=persondb -d -p5432:5432 postgres
+Start the service using docker-compose
+```
+docker-compose up
+```
 
-gradle quarkusBuild --uber-jar
+Run queries against the RestEasy component and against the eventloop endpoint, which are both implmented blocking. See the difference ;-)
 
-java -jar build/quarkus-demo-1.0.0-SNAPSHOT-runner.jar
+```
+blockingRequests.sh
+```
 
-gradle quarkusDev
+```
+blockingVertxRequests.sh
+```
 
-curl -H "Content-Type: application/json; charset=UTF-8" --request POST --data @./payload/person3.json http://localhost:8080/person/
 
-curl http://localhost:8080/person
+## Alternatives in reactive environment
+The service implements two alternatives when executing blocking code in reactive environments.
+Using the Vert.X eventbus or executing the blocking code on different executors explicitly.
 
-curl http://localhost:8080/person/2
+Both ways are shown here as well.
 
-curl http://localhost:8080/person/firstname/Max
