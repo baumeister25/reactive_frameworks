@@ -1,0 +1,15 @@
+# Open Intellij
+
+- quarkus_demo
+- reactive
+- reactive-routes-demo
+- fake_db
+- quarkus-client
+- springboot client
+
+# Prepare JVM connection
+- open windows visualVM
+- check if ip has changed `ip addr | grep eth0`
+- Start reactive routes to check connection
+
+

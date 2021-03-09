@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  db:
+    build: ./quarkus_fake_db/
+    ports:
+      - "9010:9010"
+  reactive_client:
+    build: ./quarkus_service/
+    ports:
+      - "9020:9020"
+      - "8080:8080"
+  spring_boot_client:
+    build: ./spring-boot-client/
+    ports:
+      - "9040:9040"
+      - "8070:8080"
